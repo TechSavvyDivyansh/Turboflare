@@ -10,15 +10,15 @@ TurboFlare is your one-stop destination for all things automotive. With a sleek 
 - **Admin Dashboard:** Gain access to a comprehensive admin dashboard equipped with tools for managing sales reports, downloading data, sending customized emails to users, and tracking user activity.
 
 
-![homePage](https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/37cecff3-3abd-4c21-9804-0b83e8dabd89)
+![homePage](https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/c4124aa7-aee0-438d-9cb7-3afd9f74f254)
 
-![features](https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/7813a72b-2961-4531-915b-6de16dabc58e)
+![features](https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/182bf6a2-94b4-4e8a-8549-71136d0ef7c4)
 
-![footer](https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/cd645c48-160e-4474-9298-ca2acb77eb62)
+![footer](https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/6e7d2286-210e-49f3-9195-026cd9d93bc3)
 
 <br/>
 <div align="center">
-  <img src="https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/e5bd3c46-804c-4f51-b087-5e3c63c3d9d0" alt="home-mobile" width="250px" align="left">
-  <img src="https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/b89ad1c6-260b-447a-a61f-ca82c39b30ea" alt="features-mobile" width="250px">
-  <img src="https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/c60138bc-0e55-4bb0-9f50-58e429ad1973" alt="advertisment-mobile" width="250px" align="right">
+  <img src="https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/1e602f34-b05a-40e6-866a-0d9e2629a5e7" alt="home-mobile" width="250px" align="left">
+  <img src="https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/966b3bd3-783b-4664-b1b8-ae93f9174f90" alt="features-mobile" width="250px">
+  <img src="https://github.com/TechSavvyDivyansh/Turboflare/assets/136167149/5477bb4d-f283-46f0-bfec-f1d99c413fa1" alt="advertisment-mobile" width="250px" align="right">
 </div>
