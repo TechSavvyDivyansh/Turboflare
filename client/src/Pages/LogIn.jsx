@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import carImg from '../assets/images/LoginPage/black-car-with-mountain-background_7023-7051.jpg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function LogIn() {
+  
   return (
     <div className='w-[85vw] lg:w-[50vw] xl:w-[30vw] container mx-auto my-20 lg:my-40'>
         <img src={carImg} alt="" className='w-[85vw] lg:w-[50vw] xl:w-[30vw] rounded-lg'/>
