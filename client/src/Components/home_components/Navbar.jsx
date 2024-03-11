@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 export default function Navbar() {
   let [menu,setMenu]=useState(false)
   return (
-    <header className='bg-[#1F1E1E] w-[100vw] flex flex-col md:flex-row items-center p-5 md:p-7 md:px-20 gap-5 md:justify-between shadow-xl'>
+    <motion.header initial={{y:-90}} animate={{y:0}} transition={{duration:0.5}} className='bg-[#1F1E1E] w-[100vw] flex flex-col md:flex-row items-center p-5 md:p-7 md:px-20 gap-5 md:justify-between shadow-xl'>
           {/* LOGO+ open close menu icon */}
           <div className="flex items-center justify-between w-[90vw] md:w-[30vw]">
               <div className="text-[#F6C598] md:text-xl lg:text-2xl font-normal">TURBOFLARE</div>
@@ -22,6 +23,6 @@ export default function Navbar() {
                   <Link to='/login'><li className='text-black font-normal cursor-pointer bg-[#F6C598] rounded-xl md:text-base lg:text-lg px-3 md:px-11 flex justify-center hover:bg-transparent hover: border border-[#7d6650] hover:text-[#7d6650] transition'>Sign In</li></Link>
               </ul>
           </div>
-    </header>
+    </motion.header>
   )
 }
