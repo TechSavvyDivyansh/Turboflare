@@ -1,12 +1,18 @@
 {
   "name": "turboflare",
   "version": "1.0.0",
-  "description": "",
+  "description": "TurboFlare is your one-stop destination for all things automotive. With a sleek and intuitive interface, TurboFlare allows users to explore a wide range of cars, book their dream vehicle, track their delivery, and much more. Whether you're a car enthusiast or simply in need of reliable transportation, TurboFlare has you covered.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev":"nodemon api/index.js",
+    "start":"node api/index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "nodemon": "^3.1.0"
+  }
 }
