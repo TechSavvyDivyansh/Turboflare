@@ -19,11 +19,11 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    city:{
+    phone:{
         type:String,
         required:true
     },
-    phone:{
+    city:{
         type:String,
         required:true
     }
