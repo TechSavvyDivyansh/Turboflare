@@ -64,7 +64,7 @@ export default function SignUp() {
             <input type="email" id="email" placeholder='ENTER EMAIL' className='bg-[#2C2A2A] my-2 md:my-3 py-4 rounded-lg text-[#A69C93] placeholder:text-[#A69C93] cursor-auto focus:outline-none pl-10' onChange={handleChangeSignup}/>
             <input type="text" id="username" placeholder='ENTER USERNAME' className='bg-[#2C2A2A] my-2 md:my-3 py-4 rounded-lg text-[#A69C93] placeholder:text-[#A69C93] cursor-auto focus:outline-none pl-10' onChange={handleChangeSignup}/>
             <input type="password" id="password" placeholder='ENTER PASSWORD' className='bg-[#2C2A2A] my-2 md:my-3 py-4 rounded-lg text-[#A69C93] placeholder:text-[#A69C93] cursor-auto focus:outline-none pl-10' onChange={handleChangeSignup}/>
-            <input type="tel" id="phone" placeholder='ENTER PHONE NUMBER' className='bg-[#2C2A2A] my-2 md:my-3 py-4 rounded-lg text-[#A69C93] placeholder:text-[#A69C93] cursor-auto focus:outline-none pl-10' onChange={handleChangeSignup}/>
+            <input type="tel" id="phone" placeholder='ENTER PHONE NUMBER' pattern="[0-9]{10}" className='bg-[#2C2A2A] my-2 md:my-3 py-4 rounded-lg text-[#A69C93] placeholder:text-[#A69C93] cursor-auto focus:outline-none pl-10' onChange={handleChangeSignup}/>
             <select id="city" className='bg-[#2C2A2A] my-2 md:my-3 py-4 rounded-lg text-[#A69C93] placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10' onChange={handleChangeSignup} defaultValue="" required>
                     <option value="" disabled>-- Select a City --</option>
                     <option>Mumbai</option>
