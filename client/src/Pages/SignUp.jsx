@@ -83,10 +83,10 @@ export default function SignUp() {
                     <option>Patna</option>
                     <option>Indore</option>
             </select>
-            <button className='bg-[#845D42] hover:bg-[#b4a290] my-2 md:my-3 py-4 rounded-lg text-white placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10' disabled={Loading}>{Loading?"LOADING...":"CREATE ACCOUNT"}</button>
+            <button className='bg-[#845D42] hover:bg-[#a47452] my-2 md:my-3 py-4 rounded-lg text-white placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10' disabled={Loading}>{Loading?"LOADING...":"CREATE ACCOUNT"}</button>
             <div className="flex justify-between my-2 md:my-3">
               <p className='text-white text-sm md:text-lg'>Already Have an account?</p>
-              <p className='text-[#C79D76] hover:text-[#dcba99] cursor-pointer text-sm md:text-lg'><Link to='/login' className='cursor-pointer'>SIGN IN</Link></p>
+              <p className='text-[#845D42] hover:text-[#dcba99] cursor-pointer text-sm md:text-lg'><Link to='/login' className='cursor-pointer'>SIGN IN</Link></p>
             </div>
             {DispErrorMessage && <p className='text-red-500 mt-5 m-auto'>{DispErrorMessage}</p>}
             {SuccessDisp && <p className='text-green-800 mt-5'>User Created Successfully!!!🥳</p>}
