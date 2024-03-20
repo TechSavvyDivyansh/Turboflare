@@ -12,7 +12,7 @@ export default function Landing() {
                     initial={{opacity:0,y:-50}} 
                     animate={{opacity:1,y:0}} 
                     transition={{duration:1,delay:0.5}}
-                    className="text md:w-[50vw] md:flex md:flex-col md:items-center md:justify-center -z-10">
+                    className="text md:w-[50vw] md:flex md:flex-col md:items-center md:justify-center">
                     
                     <h1 className='text-[#F6C598] text-2xl md:text-2xl lg:text-3xl md:text-center xl:text-6xl'>Accelerate Your Lifestyle.</h1>
                     <p className='text-[#8A8A8A] text-sm md:text-base lg:text-lg md:w-[30vw] md:text-center xl:text-xl'>Experience unparalleled design and performance—where each drive is a journey of power and elegance</p>
