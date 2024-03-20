@@ -83,8 +83,7 @@ export default function SignUp() {
                     <option>Patna</option>
                     <option>Indore</option>
             </select>
-            <button className='bg-[#9F8E7D] hover:bg-[#b4a290] my-2 md:my-3 py-4 rounded-lg text-black placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10' disabled={Loading}>{Loading?"LOADING...":"CREATE ACCOUNT"}</button>
-            <button className='bg-[#845D42] hover:bg-[#9b6f50] my-2 md:my-3 py-4 rounded-lg text-white placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10'>SIGN UP WITH GOOGLE</button>
+            <button className='bg-[#845D42] hover:bg-[#b4a290] my-2 md:my-3 py-4 rounded-lg text-white placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10' disabled={Loading}>{Loading?"LOADING...":"CREATE ACCOUNT"}</button>
             <div className="flex justify-between my-2 md:my-3">
               <p className='text-white text-sm md:text-lg'>Already Have an account?</p>
               <p className='text-[#C79D76] hover:text-[#dcba99] cursor-pointer text-sm md:text-lg'><Link to='/login' className='cursor-pointer'>SIGN IN</Link></p>

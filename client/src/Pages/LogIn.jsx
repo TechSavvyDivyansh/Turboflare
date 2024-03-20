@@ -60,8 +60,7 @@ export default function LogIn() {
             <input type="text" id="username" placeholder='ENTER USERNAME' className='bg-[#2C2A2A] my-2 md:my-3 py-4 rounded-lg text-[#A69C93] placeholder:text-[#A69C93] cursor-auto focus:outline-none pl-10' onChange={handleChangeLogin}/>
             <input type="password" id="password" placeholder='ENTER PASSWORD' className='bg-[#2C2A2A] my-2 md:my-3 py-4 rounded-lg text-[#A69C93] placeholder:text-[#A69C93] cursor-auto focus:outline-none pl-10' onChange={handleChangeLogin}/>
             
-            <button className='bg-[#9F8E7D] hover:bg-[#b4a290] my-2 md:my-3 py-4 rounded-lg text-black placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10' disabled={loading}>{loading?"DRIVING YOU IN...":"LOGIN"}</button>
-            <button className='bg-[#845D42] hover:bg-[#9b6f50] my-2 md:my-3 py-4 rounded-lg text-white placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10'>SIGN UP WITH GOOGLE</button>
+            <button className='bg-[#845D42] hover:bg-[#b4a290] my-2 md:my-3 py-4 rounded-lg text-white placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10' disabled={loading}>{loading?"DRIVING YOU...":"CREATE ACCOUNT"}</button>  
             <div className="flex justify-between my-2 md:my-3">
               <p className='text-white text-sm md:text-lg'>Dont Have an Account? </p>
               <p className='text-[#C79D76] hover:text-[#dcba99] cursor-pointer text-sm md:text-lg'><Link to='/sign-up' className='cursor-pointer'>CREATE AN ACCOUNT</Link></p>
