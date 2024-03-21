@@ -1,6 +1,7 @@
 import express, { json } from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import cookieParser from 'cookie-parser'
 
 import userRouter from './routes/user.route.js'
 import AuthRouter from './routes/auth.route.js'
@@ -15,8 +16,13 @@ mongoose.connect(process.env.MONGO).then(()=>{
     console.log(err)
 })
 
+
+
 const app=express()
 app.use(express.json())
+app.use(cookieParser())
+
+
 
 
 app.listen(3000,()=>{

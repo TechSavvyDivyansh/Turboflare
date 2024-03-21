@@ -80,6 +80,8 @@ export default function Left_profile() {
                 <input type="text" placeholder='email' defaultValue={currentUser.email} className='p-3 rounded-lg cursor-auto bg-[#2C2A2A] text-[#B4ADAD] focus:outline-none placeholder:text-[#B4ADAD]'/>
                 <input type="text" placeholder='username' defaultValue={currentUser.username} className='p-3 rounded-lg cursor-auto bg-[#2C2A2A] text-[#B4ADAD] focus:outline-none placeholder:text-[#B4ADAD]'/>
                 <input type="password" placeholder='password' className='p-3 rounded-lg cursor-auto bg-[#2C2A2A] text-[#B4ADAD] focus:outline-none placeholder:text-[#B4ADAD]'/>
+                <input type="text" placeholder='City' className='p-3 rounded-lg cursor-auto bg-[#2C2A2A] text-[#B4ADAD] focus:outline-none placeholder:text-[#B4ADAD]' defaultValue={currentUser.city}/>
+                <input type="tel" placeholder='phone' className='p-3 rounded-lg cursor-auto bg-[#2C2A2A] text-[#B4ADAD] focus:outline-none placeholder:text-[#B4ADAD]' defaultValue={currentUser.phone}/>
                 <button className='bg-[#B4ADAD] text-[#2C2A2A] p-3 rounded-lg'>UPDATE USER</button>
             </form>
                 <div className="flex justify-between py-4">
