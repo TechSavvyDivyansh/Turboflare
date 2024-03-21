@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {motion} from 'framer-motion'
+import {useSelector} from 'react-redux'
 
 export default function Navbar() {
   let [menu,setMenu]=useState(false)
+  const {currentUser}=useSelector(state=>state.user)
+
   return (
     <motion.header initial={{y:-90}} animate={{y:0}} transition={{duration:0.5}} className='bg-[#1F1E1E] w-[100vw] flex flex-col md:flex-row items-center p-5 md:p-7 md:px-20 gap-5 md:justify-between shadow-xl'>
           {/* LOGO+ open close menu icon */}
@@ -20,7 +23,11 @@ export default function Navbar() {
               <ul className='flex flex-col md:flex-row items-center gap-3 md:gap-4 lg:gap-16'>
                   <Link to='/' className='cursor-pointer'><li className='text-white font-normal cursor-pointer md:text-base lg:text-lg hover:text-gray-400 transition'>HOME</li></Link>
                   <Link to='/cruiseCollection' className='cursor-pointer'><li className='text-white font-normal cursor-pointer md:text-base lg:text-lg hover:text-gray-400 transition'>Cruise Collection</li></Link>
-                  <Link to='/login'><li className='text-black font-normal cursor-pointer bg-[#F6C598] rounded-xl md:text-base lg:text-lg px-3 md:px-11 flex justify-center hover:bg-transparent hover: border border-[#7d6650] hover:text-[#7d6650] transition'>Sign In</li></Link>
+                  <Link to='/profile'>
+                    {currentUser?(
+                      <img src={currentUser.avatar} alt="profile" className='h-10 rounded-full object-cover cursor-pointer' />
+                    ):<li className='text-black font-normal cursor-pointer bg-[#F6C598] rounded-xl md:text-base lg:text-lg px-3 md:px-11 flex justify-center hover:bg-transparent hover: border border-[#7d6650] hover:text-[#7d6650] transition'>Sign In</li>}
+                  </Link>
               </ul>
           </div>
     </motion.header>

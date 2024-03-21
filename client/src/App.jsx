@@ -6,6 +6,8 @@ import Home from './Pages/Home'
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
 import SignUp from './Pages/SignUp'
 import LogIn from './Pages/LogIn'
+import Profile from './Components/Profile'
+import PrivateRoute from './Components/PrivateRoute'
 
 function App() {
 
@@ -17,6 +19,9 @@ function App() {
           <Route path='/cruiseCollection' element={<CruiseCollection/>}/>
           <Route path='/sign-up' element={<SignUp/>}/>
           <Route path='/login' element={<LogIn/>}/>
+          <Route element={<PrivateRoute/>}>
+              <Route path='/profile' element={<Profile/>}/>
+          </Route>
       </Routes>
       <Footer/>
     </BrowserRouter>
