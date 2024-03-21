@@ -25,7 +25,7 @@ export default function Navbar() {
                   <Link to='/cruiseCollection' className='cursor-pointer'><li className='text-white font-normal cursor-pointer md:text-base lg:text-lg hover:text-gray-400 transition'>Cruise Collection</li></Link>
                   <Link to='/profile'>
                     {currentUser?(
-                      <img src={currentUser.avatar} alt="profile" className='h-10 rounded-full object-cover cursor-pointer' />
+                      <img src={currentUser.avatar} alt="profile" className='h-10 w-10 rounded-xl object-cover cursor-pointer' />
                     ):<li className='text-black font-normal cursor-pointer bg-[#F6C598] rounded-xl md:text-base lg:text-lg px-3 md:px-11 flex justify-center hover:bg-transparent hover: border border-[#7d6650] hover:text-[#7d6650] transition'>Sign In</li>}
                   </Link>
               </ul>
