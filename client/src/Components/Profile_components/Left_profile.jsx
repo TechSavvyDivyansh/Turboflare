@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage'
 import {app} from '../../firebase'
-import { updateUserStart,updateUserFailiure,updateUserSuccess } from '../../redux/user/userSlice'
+import { updateUserStart,updateUserFailiure,updateUserSuccess,signOutUserSuccess,signOutUserFailiure,signOutUserStart } from '../../redux/user/userSlice'
 
 
 export default function Left_profile() {
@@ -10,13 +10,14 @@ export default function Left_profile() {
     const fileRef=useRef(null)
     const dispatch=useDispatch()
 
-    const {currentUser}=useSelector(state=>state.user)
+    const {currentUser,loading,error}=useSelector(state=>state.user)
     const [File,setFile]=useState(undefined)
     const [filePercent,setFilePercent]=useState(0)
     const [fileUploadError,SetFileUploadError]=useState(false)
     const [formData,setFormData]=useState({})
-    console.log(formData);
+    const [updateSuccess,setUpdateSuccess]=useState(false)
 
+    
 
     useEffect(()=>{
         if(File)
@@ -94,11 +95,30 @@ export default function Left_profile() {
             }
 
             dispatch(updateUserSuccess(data))
-
+            setUpdateSuccess(true)
+            
         } catch (error) {
             dispatch(updateUserFailiure(error.message))
         }
     }
+
+
+    const handleSignOut=async()=>{
+        try {
+          dispatch(signOutUserStart())
+          const res=await fetch('/api/auth/signout')
+          const data=await res.json()
+          if(data.success==false)
+          {
+             dispatch(signOutUserFailiure(data.message))
+             return;
+          }
+          dispatch(signOutUserSuccess(data))
+        } catch (error) {
+            dispatch(signOutUserFailiure(error.message))
+        }
+      }
+    
 
 
   return (
@@ -129,12 +149,14 @@ export default function Left_profile() {
                 <input type="text" placeholder='City' className='p-3 rounded-lg cursor-auto bg-[#2C2A2A] text-[#B4ADAD] focus:outline-none placeholder:text-[#B4ADAD]' defaultValue={currentUser.city} 
                 onChange={handleUpdateChange} id="city"/>
 
-                <button className='bg-[#B4ADAD] text-[#2C2A2A] p-3 rounded-lg'>UPDATE USER</button>
+                <button className='bg-[#B4ADAD] text-[#2C2A2A] p-3 rounded-lg' disabled ={loading}>{loading?"LOADING...":"UPDATE USER"}</button>
             </form>
                 <div className="flex justify-between py-4">
                     <p className='text-[#F6C598] hover:text-red-400 cursor-pointer'>DELETE ACCOUNT</p>
-                    <p className='text-[#F6C598] hover:text-red-400 cursor-pointer'>SIGN OUT</p>
+                    <p className='text-[#F6C598] hover:text-red-400 cursor-pointer' onClick={handleSignOut}>SIGN OUT</p>
                 </div>
+                <p className='text-red-700 mt-5 text-center'>{error?error:""}</p>
+                <p className='text-green-700 mt-5 text-center'>{updateSuccess?"User updated successfully":""}</p>
         </div>
     </div>
   )
