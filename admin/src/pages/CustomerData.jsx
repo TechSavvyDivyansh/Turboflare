@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import {CSVLink} from 'react-csv'
 
 export default function CustomerData() {
 
   let [clientsData,setClientsData]=useState([])
   console.log(clientsData);
+
+  let headers=[
+    {label:'Username',key:'username'},
+    {label:'Customer Name',key:'name'},
+    {label:'Phone',key:'phone'},
+    {label:'Email',key:'email'},
+    {label:'City',key:'city'},
+    {label:'User Since',key:'createdAt'}
+  ]
+
+
+
 
   useEffect(()=>{
     let userData=async()=>{
@@ -16,8 +29,8 @@ export default function CustomerData() {
           return;
         }
 
-        setClientsData(data)
-
+        // setClientsData(data)
+        setClientsData(data.map(item=>({...item,createdAt:item.createdAt.substring(0,4)})))
         
       } catch (error) {
         console.log(error);
@@ -33,8 +46,8 @@ export default function CustomerData() {
   return (
     <div className='p-10'>
       <div className="m-10 flex gap-4">
-        <span className='p-4 bg-[#161616]'><span>{clientsData.length}</span> users</span>
-        <span className='p-4 bg-[#161616] cursor-pointer'>DOWNLOAD REPORT</span>
+        <span className='p-4 bg-[#161616]'>{clientsData.length} Users</span>
+        <CSVLink data={clientsData} headers={headers} filename={'data.csv'} className='bg-[#161616] p-4 flex flex-col item-center'>Download CSV</CSVLink>
       </div>
       <table className='flex flex-col gap-4 w-[80vw]'>
         <thead>
@@ -60,11 +73,11 @@ export default function CustomerData() {
                   <td className='text-white w-[10%] text-left '>{data.phone}</td>
                   <td className='text-white w-[19%] text-left '>{data.email}</td>
                   <td className='text-white w-[12%] text-center '>{data.city}</td>
-                  <td className='text-white w-[15%] text-center'>{data.createdAt.substring(0,4)}</td>
+                  <td className='text-white w-[15%] text-center'>{data.createdAt}</td>
                   <td>
                     <div className=" flex flex-col gap-3">
-                      <button className='px-2 bg-red-700'>DELETE</button>
-                      <button className='px-2 bg-green-700'>CONTACT</button>
+                      <button className='px-2 bg-[#2f2f2f]'>DELETE</button>
+                      <button className='px-2 bg-[#686767] text-black'>CONTACT</button>
                     </div>
                   </td>
                 </tr>
