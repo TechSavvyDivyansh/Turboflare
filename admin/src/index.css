@@ -7,11 +7,32 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: default;
 }
 
 body
 {
   background-color: black;
   color: aliceblue;
+  cursor: default;
+}
+
+
+html
+{
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(black,#50251c,black); /* Set your gradient here */
+  border-radius: 6px; /* Set the border radius of the thumb */
+}
+
+::-webkit-scrollbar-track {
+  background: black;
 }

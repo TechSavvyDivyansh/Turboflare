@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 
 import userRouter from './routes/user.route.js'
 import AuthRouter from './routes/auth.route.js'
+import AdminRouter from './routes/AdminData.route.js'
 
 
 
@@ -31,6 +32,7 @@ app.listen(3000,()=>{
 
 app.use('/api/user',userRouter)
 app.use('/api/auth',AuthRouter)
+app.use('/api/admin',AdminRouter)
 
 
 

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <div className='w-[20vw] h-[100vh] bg-[#161616] p-3'>
+    <div className='w-[15vw] h-[100vh] bg-[#161616] p-3'>
         <div className="flex flex-col items-center m-4 gap-10">
             <p className='text-2xl text-[#F6C598]'>TURBOFLARE</p>
             <img src="https://img.freepik.com/premium-photo/anime-boy-man-avatar-ai-generative-art_225753-7456.jpg" alt="" className='w-[150px] h-[150px] rounded-full'/>

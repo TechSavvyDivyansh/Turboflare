@@ -2,8 +2,8 @@ import React from 'react'
 import './App.css'
 import Navbar from './Components/Navbar'
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
-import UserData from './pages/CustomerData'
 import Listing from './pages/Listing'
+import CustomerData from './pages/CustomerData'
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
       <div className="flex">
         <Navbar/>
         <Routes>
-          <Route path='/customer-data' element={<UserData/>}/>
+          <Route path='/customer-data' element={<CustomerData/>}/>
           <Route path='/listing' element={<Listing/>}/>
         </Routes>
       </div>
