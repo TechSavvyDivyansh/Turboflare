@@ -120,7 +120,7 @@ export default function Profile() {
             <input type="text" id="username" placeholder='Username' defaultValue={currentAdmin.username} className='bg-[#161616] p-3 rounded-lg w-full focus:outline-none text-center placeholder:text-[#b6b6b6]' onChange={handleProfileChange}/>
             <input type="text" id="email" placeholder='Email' defaultValue={currentAdmin.email} className='bg-[#161616] p-3 rounded-lg w-full focus:outline-none text-center placeholder:text-[#b6b6b6]' onChange={handleProfileChange}/>
             
-            <select id="designation" className='bg-[#161616] py-3 w-full rounded-lg text-white placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10 text-center' onChange={handleProfileChange} defaultValue="" required>
+            <select id="designation" className='bg-[#161616] py-3 w-full rounded-lg text-white placeholder:text-[#A69C93] cursor-pointer focus:outline-none px-10 text-center' onChange={handleProfileChange} defaultValue={currentAdmin.designation||""}>
                     <option value="" disabled>-- Select your designation --</option>
                     <option>CEO</option>
                     <option>CTO</option>
