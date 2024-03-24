@@ -1,8 +1,9 @@
 import express from 'express'
-import { UserData } from '../controllers/AdminData.controller.js'
+import { DeleteUser, UserData } from '../controllers/AdminData.controller.js'
 
 const router=express.Router()
 
 router.get('/userData',UserData)
+router.delete('/deleteUser/:id',DeleteUser)
 
 export default router

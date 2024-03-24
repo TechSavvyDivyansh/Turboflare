@@ -43,6 +43,36 @@ export default function CustomerData() {
   },[])
 
 
+  let handleDelete=async(id)=>{
+      try {
+
+        let res=await fetch(`/api/admin/deleteUser/${id}`,{
+          method:"DELETE",
+          headers:{
+            'Content-type':'application/json'
+          }
+        })
+        let data=await res.json()
+
+        if(data.success==false)
+        {
+           log(data.message)
+        }
+
+        else
+        {
+          let updatedData=[...clientsData]
+          setClientsData(updatedData.filter(user=>user._id!==id))
+        }
+
+
+      } catch (error) {
+          console.log(error);
+      }
+
+  }
+
+
   return (
     <div className='p-10'>
       <div className="m-10 flex gap-4">
@@ -76,7 +106,7 @@ export default function CustomerData() {
                   <td className='text-white w-[15%] text-center'>{data.createdAt}</td>
                   <td>
                     <div className=" flex flex-col gap-3">
-                      <button className='px-2 bg-[#2f2f2f]'>DELETE</button>
+                      <button className='px-2 bg-[#2f2f2f]' onClick={()=>{handleDelete(data._id)}}>DELETE</button>
                       <button className='px-2 bg-[#686767] text-black'>CONTACT</button>
                     </div>
                   </td>
