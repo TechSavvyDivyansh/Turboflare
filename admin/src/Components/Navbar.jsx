@@ -1,13 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {useSelector} from 'react-redux'
 
 export default function Navbar() {
+  let {currentAdmin}=useSelector(state=>state.admin)
   return (
     <div className='w-[15vw] h-[100vh] bg-[#161616] p-3'>
         <div className="flex flex-col items-center m-4 gap-10">
             <p className='text-2xl text-[#F6C598]'>TURBOFLARE</p>
             <img src="https://img.freepik.com/premium-photo/anime-boy-man-avatar-ai-generative-art_225753-7456.jpg" alt="" className='w-[150px] h-[150px] rounded-full'/>
-            <p className='text-[#9c9898]'>ADMIN NAME</p>
+            <p className='text-[#9c9898]'>{currentAdmin.username}</p>
             <ul className="flex flex-col gap-10 my-8">
                 <Link to="/report"><li className='text-white text-center text-xl cursor-pointer'>REPORT</li></Link>
                 <Link to="/listing"><li className='text-white text-center text-xl cursor-pointer'>LISTING</li></Link>
