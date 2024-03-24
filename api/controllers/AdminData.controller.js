@@ -69,3 +69,20 @@ export const updateAdminData=async(req,res,next)=>{
     }
 
 }
+
+
+export const TeamData=async(req,res,next)=>{
+    try {
+        let teamData=await Admin.find({},{password:0})
+        if(!teamData|| teamData.length === 0)
+        {
+            res.status(201).json({message:"No Admin found"})
+        }
+        else
+        {
+            res.status(200).json(teamData)
+        }
+    } catch (error) {
+        next(error)
+    }
+}
