@@ -33,7 +33,7 @@ export default function Navbar() {
     <div className='w-[15vw] h-[100vh] bg-[#161616] p-3 flex flex-col justify-between items-center'>
         <div className="flex flex-col items-center m-4 gap-10">
             <p className='text-2xl text-[#F6C598]'>TURBOFLARE</p>
-            <img src={currentAdmin.avatar} alt="" className='w-[150px] h-[150px] rounded-full'/>
+            <img src={currentAdmin.avatar} alt="" className='w-[150px] h-[150px] rounded-full object-cover'/>
             <p className='text-[#9c9898]'>{currentAdmin.username}</p>
             <ul className="flex flex-col gap-10 my-8">
                 <Link to="/report"><li className='text-white text-center text-xl cursor-pointer'>REPORT</li></Link>
