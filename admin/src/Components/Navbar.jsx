@@ -44,7 +44,7 @@ export default function Navbar() {
             </ul>
         </div>
         <div className="flex justify-between -translate-y-7 w-[90%]">
-          <button className='bg-[#2C2A2A] p-2 text-[#b6b6b6]'>View Profile</button>
+        <Link to='/profile'><button className='bg-[#2C2A2A] p-2 text-[#b6b6b6]'>View Profile</button></Link>
           <p className='text-[#b6b6b6] cursor-pointer p-2' onClick={handleSignOut}>Sign Out</p>
         </div>
     </div>

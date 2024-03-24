@@ -9,6 +9,7 @@ import AdminLogin from './pages/AdminLogin'
 import PrivateRoute from './Components/PrivateRoute.jsx'
 import {useSelector} from 'react-redux'
 import TeamData from './pages/TeamData.jsx'
+import Profile from './pages/Profile.jsx'
 
 function App() {
   let {currentAdmin}=useSelector(state=>state.admin)
@@ -22,6 +23,7 @@ function App() {
                         <Route path='/customer-data' element={<CustomerData/>}/>
                         <Route path='/listing' element={<Listing/>}/>
                         <Route path='/advertisement' element={<Advertisment/>}/>
+                        <Route path='/profile' element={<Profile/>} />
                         {currentAdmin && currentAdmin.isAdmin && <Route path='/team-data' element={<TeamData/>}/>}
               </Route>
 
