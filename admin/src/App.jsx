@@ -8,6 +8,7 @@ import Advertisment from './pages/Advertisment'
 import AdminLogin from './pages/AdminLogin'
 import PrivateRoute from './Components/PrivateRoute.jsx'
 import {useSelector} from 'react-redux'
+import TeamData from './pages/TeamData.jsx'
 
 function App() {
   let {currentAdmin}=useSelector(state=>state.admin)
@@ -16,12 +17,12 @@ function App() {
       <div className="flex">
             {currentAdmin && <Navbar/>}
             <Routes>        
-              <Route path='/' element={<AdminLogin/>} />
+              {!currentAdmin && <Route path='/' element={<AdminLogin/>} /> }
               <Route element={<PrivateRoute/>}>
                         <Route path='/customer-data' element={<CustomerData/>}/>
                         <Route path='/listing' element={<Listing/>}/>
                         <Route path='/advertisement' element={<Advertisment/>}/>
-                        {/* <Route path='/sign-up' element={<AdminSignup/>} /> */}
+                        {currentAdmin && currentAdmin.isAdmin && <Route path='/team-data' element={<TeamData/>}/>}
               </Route>
 
             </Routes>

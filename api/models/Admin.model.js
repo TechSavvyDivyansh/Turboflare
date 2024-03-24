@@ -18,6 +18,10 @@ const adminSchema=mongoose.Schema({
     phone:{
         type:String
     },
+    isAdmin:{
+        type:Boolean,
+        default:false
+    },
     email:{
         type:String,
         required:true,
@@ -28,7 +32,7 @@ const adminSchema=mongoose.Schema({
     },
     avatar:{
         type:String,
-        default:"https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+        default:"https://img.freepik.com/premium-photo/anime-boy-man-avatar-ai-generative-art_225753-7456.jpg"
     }
 },{timestamps:true})
 
