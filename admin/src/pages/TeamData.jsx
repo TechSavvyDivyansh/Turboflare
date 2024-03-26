@@ -54,6 +54,21 @@ export default function TeamData() {
         })
         let data=res.json()
         console.log(data)
+
+        let emailres=await fetch('/api/adminAuth/email',{
+          method:"POST",
+          headers:{
+            "Content-type":"application/json"
+          },
+          body:JSON.stringify({
+             "email":newAdminData.email,
+             "subject":`hello ${newAdminData.name}`,
+             "messageText":`username:${newAdminData.username} password:${newAdminData.password}`
+          })
+        })
+
+        let emailData=emailres.json()
+        console.log(emailData);
         
       } catch (error) {
         console.log(error);

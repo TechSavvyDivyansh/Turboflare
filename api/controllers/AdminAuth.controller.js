@@ -68,7 +68,7 @@ export let sendWelcomeEmail=async(req,res,next)=>{
             from:process.env.EMAIL,
             to:req.body.email,
             subject:req.body.subject,
-            html:req.body.message 
+            html:req.body.messageText
         }
 
         transporter.sendMail(mailOptions,(error,info)=>{
