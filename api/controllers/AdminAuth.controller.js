@@ -2,6 +2,7 @@ import Admin from '../models/Admin.model.js'
 import bcryptjs from 'bcryptjs'
 import { errorHandler } from '../utils/error.js'
 import jwt from 'jsonwebtoken'
+import nodemailer from 'nodemailer'
 
 
 export const AdminSignup=async(req,res,next)=>{
@@ -47,3 +48,45 @@ export const AdminLogin=async(req,res,next)=>{
     }
 
 }
+
+
+export let sendWelcomeEmail=async(req,res,next)=>{
+
+    console.log(process.env.EMAIL,process.env.PASSWORD)
+
+    try {
+        let transporter=nodemailer.createTransport({
+            service:'gmail',
+            auth:{
+                user:process.env.EMAIL,
+                pass:process.env.PASSWORD
+            }
+        })
+        
+    
+        let mailOptions={
+            from:process.env.EMAIL,
+            to:req.body.email,
+            subject:req.body.subject,
+            html:req.body.message 
+        }
+
+        transporter.sendMail(mailOptions,(error,info)=>{
+            if(error)
+            {
+                console.log(error);
+            }
+            else
+            {
+                res.status(200).json(`message sent to ${info.messageId}`)
+            }
+        });
+        
+
+    } catch (error) {
+        next(errorHandler(404,"Not able to send email"))
+    }
+
+    
+}
+
