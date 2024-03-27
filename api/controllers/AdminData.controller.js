@@ -1,5 +1,7 @@
 import User from "../models/user.model.js"
 import Admin from '../models/Admin.model.js'
+import { errorHandler } from "../utils/error.js"
+import bcryptjs from 'bcryptjs'
 
 export const UserData=async(req,res,next)=>{
     try {

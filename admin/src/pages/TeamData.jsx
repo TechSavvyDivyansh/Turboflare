@@ -4,8 +4,6 @@ export default function TeamData() {
 
   let [teamData,setTeamData]=useState([])
   let [newAdminData,setNewAdminData]=useState({})
-  console.log(newAdminData)
-  console.log(teamData);
 
 
   useEffect(()=>{
@@ -52,8 +50,13 @@ export default function TeamData() {
           },
           body:JSON.stringify(newAdminData)
         })
-        let data=res.json()
-        console.log(data)
+
+
+        if(res.ok)
+        {
+          let data=res.json()
+          setTeamData([...teamData,newAdminData])
+        }
 
         let emailres=await fetch('/api/adminAuth/email',{
           method:"POST",
@@ -63,12 +66,68 @@ export default function TeamData() {
           body:JSON.stringify({
              "email":newAdminData.email,
              "subject":`hello ${newAdminData.name}`,
-             "messageText":`username:${newAdminData.username} password:${newAdminData.password}`
+             "messageText":`
+             <head>
+                <style>      
+                      h1 {
+                          color: #333333;
+                          text-align:center;
+                      }
+              
+                      p {
+                          color: #666666;
+                          text-align:center;
+                      }
+              
+                      .button {
+                          background-color: #161616;
+                          color: white;
+                          text-decoration: none;
+                          padding: 10px 20px;
+                          border-radius: 5px;
+                          cursor:pointer;
+                          margin-x:auto;
+                          margin-left:670px;
+                          margin-top:20px;                          
+                      }
+              
+                      .button:hover {
+                          background-color: black;
+                      }
+              
+                      .footer {
+                          margin-top: 60px;
+                          text-align: center;
+                          color: #999999;
+                      }
+
+                      .main-info
+                      {
+                          font-weight:600;
+                          color:black;
+                      }
+
+                </style>
+             </head> 
+             <body>
+                    <div class="container">
+                        <h1 class="heading">Welcome to Turboflare🥳</h1>
+                        <p>Congratulations on joining our team! We're thrilled to have you on board.</p>
+                        <p>Your username: <span class="main-info">${newAdminData.username}</span></p>
+                        <p>Your temporary password: <span class="main-info">${newAdminData.password}</span></p>
+                        <p>Please log in to our website using the credentials provided and update your profile.</p>
+                        <a href="www.google.com" class="button" style="color:white;">Log In to your Account</a>
+                    </div>
+                    <div class="footer">
+                        <p>This email was sent by Turboflare. If you have any questions, please contact our support team.</p>
+                        <p>EMAIL- divyanshmodi2510@gmail.com PHONE:9137228225</p>
+                        <p>©<span> COPYRIGHT-TURBOFLARE</span></p>
+                    </div>
+             </body>`
           })
         })
 
         let emailData=emailres.json()
-        console.log(emailData);
         
       } catch (error) {
         console.log(error);

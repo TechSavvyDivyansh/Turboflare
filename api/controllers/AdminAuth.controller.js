@@ -11,7 +11,7 @@ export const AdminSignup=async(req,res,next)=>{
     const newAdmin=new Admin({name,email,username,password:hashedPass,phone,city,designation,avatar})
     try {
         await newAdmin.save()
-        res.status(201).json("Admin sent successfully for review!!😃")
+        res.status(201).json(newAdmin)
     } catch (error) {
         next(errorHandler(550,"Error creating Admin"))
     }
