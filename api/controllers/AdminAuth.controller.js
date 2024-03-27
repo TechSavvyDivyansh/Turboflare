@@ -65,7 +65,7 @@ export let sendWelcomeEmail=async(req,res,next)=>{
         
     
         let mailOptions={
-            from:process.env.EMAIL,
+            from:`TURBOFLARE <${process.env.EMAIL}>`,
             to:req.body.email,
             subject:req.body.subject,
             html:req.body.messageText
