@@ -8,6 +8,7 @@ export default function CreateListing() {
                     type="text"
                     className="p-3 rounded-lg bg-[#2C2A2A] text-center w-96 cursor-auto focus:outline-none"
                     placeholder="car name"
+                    required
                   />
                   <textarea
                     name=""
@@ -16,26 +17,36 @@ export default function CreateListing() {
                     rows="10"
                     className="p-3 rounded-lg bg-[#2C2A2A] text-center w-96 cursor-auto focus:outline-none resize-none"
                     placeholder="CAR DESCRIPTION"
+                    required
                   ></textarea>
-                  <input
-                    type="text"
-                    className="p-3 rounded-lg bg-[#2C2A2A] text-center w-96 cursor-auto focus:outline-none"
-                    placeholder="car type"
-                  />
-                  <input
-                    type="text"
-                    className="p-3 rounded-lg bg-[#2C2A2A] text-center w-96 cursor-auto focus:outline-none"
-                    placeholder="drive type"
-                  />
+                  <select className='p-3 rounded-lg bg-[#2C2A2A] text-center w-96 cursor-pointer focus:outline-none' name="" id="" defaultValue="" required>
+                    <option disabled value="">--Select Car type--</option>
+                    <option>SUV</option>
+                    <option>Luxury</option>
+                    <option>Sports Coupe</option>
+                    <option>Hatchback</option>
+                    <option>Sedan</option>
+                    <option>Compact/Subcompact Suv</option>
+                    <option>MUV</option>
+                    <option>Convertible</option>
+                  </select>
+                  <select className='p-3 rounded-lg bg-[#2C2A2A] text-center w-96 cursor-pointer focus:outline-none' name="" id="" defaultValue="" required>
+                    <option disabled value="">--Select Drive type--</option>
+                    <option>FWD</option>
+                    <option>RWD</option>
+                    <option>AWD</option>
+                  </select>
                   <input
                     type="text"
                     className="p-3 rounded-lg bg-[#2C2A2A] text-center w-96 cursor-auto focus:outline-none"
                     placeholder="claim mileage"
+                    required
                   />
                   <input
                     type="text"
                     className="p-3 rounded-lg bg-[#2C2A2A] text-center w-96 cursor-auto focus:outline-none"
                     placeholder="HorsePower"
+                    required
                   />
             </div>
 
@@ -159,7 +170,7 @@ export default function CreateListing() {
             </div>
             <div className="right flex flex-col items-center gap-10 w-64">
                 <p>CAR IMAGES <span className="text-[#4d4c4c] p-3">The first image will be the cover(min 3 and max 4)</span></p>
-                <input type="file" name="" id="" className="cursor-pointer" />
+                <input type="file" name="" id="" className="cursor-pointer" required/>
                 <button className="bg-[#2C2A2A] p-3 rounded-xl">CREATE LISTING</button>
             </div>
         
