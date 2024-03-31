@@ -3,10 +3,10 @@ import CreateVariantPopup from './CreateVariantPopup'
 import {getStorage,getDownloadURL,ref,uploadBytesResumable} from 'firebase/storage'
 import {app} from '../../firebase.js'
 
-export default function CreateListing() {
+export default function CreateListing(props) {
 
   let [openPopup,setOpenPopup]=useState(false)
-  let [variantData,setVariantData]=useState([])
+  
 
   let [carData,setCarData]=useState({
     "carName":"",
@@ -25,8 +25,8 @@ export default function CreateListing() {
   let [filePerc,setFilePerc]=useState(0)
   
   useEffect(() => {
-    setCarData({ ...carData, variants: variantData });
-  }, [variantData]);
+    setCarData({ ...carData, variants: props.variantData });
+  }, [props.variantData]);
   
   console.log(carData);
 
@@ -124,7 +124,7 @@ export default function CreateListing() {
   }
 
   return (
-      <div className=" p-4 w-[85vw] h-[100vh] mt-10">
+      <div className=" p-4 w-[85vw]  mt-10 flex flex-col items-center">
           <form onSubmit={handleCreateCarListing} className="flex flex-col items-center gap-10">
                 <div className="flex gap-10 w-fit mx-auto">
                         <div className="left flex flex-col gap-5 w-[25vw]">
@@ -209,7 +209,8 @@ export default function CreateListing() {
                       {carData.variants.length>0 && <button type='submit' className='p-3 rounded border border-[#959292] text-[#959292] text-center'>CREATE LISTING</button>}
                 </div>
           </form>
-          {openPopup && <CreateVariantPopup setOpenPopup={setOpenPopup} setVariantData={setVariantData} variantData={variantData}/>}
+          {openPopup && <CreateVariantPopup setOpenPopup={setOpenPopup} setVariantData={props.setVariantData} variantData={props.variantData}/>}
+
       </div>
       
   )
