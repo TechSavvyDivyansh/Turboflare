@@ -27,10 +27,6 @@ const variantSchema=mongoose.Schema({
 })
 
 const carSchema=mongoose.Schema({
-    carNo:{
-        type:Number,
-        required:true
-    },
     carName:{
         type:String,
         required:true

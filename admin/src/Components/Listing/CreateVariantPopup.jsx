@@ -10,7 +10,7 @@ export default function CreateVariantPopup(props) {
       "automatic":false,
       "fuel":""
   })
-  console.log(data);
+  // console.log(data);
 
   let handleVariantChange=(e)=>{
       if(e.target.type==="checkbox")
