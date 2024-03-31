@@ -7,6 +7,7 @@ import userRouter from './routes/user.route.js'
 import AuthRouter from './routes/auth.route.js'
 import AdminRouter from './routes/AdminData.route.js'
 import AdminAuthRouter from './routes/AdminAuth.route.js'
+import Listing from './routes/Listing.route.js'
 
 
 
@@ -35,6 +36,7 @@ app.use('/api/user',userRouter)
 app.use('/api/auth',AuthRouter)
 app.use('/api/admin',AdminRouter)
 app.use('/api/adminAuth',AdminAuthRouter)
+app.use('/api/listing',Listing)
 
 
 
