@@ -3,32 +3,25 @@ import mongoose from "mongoose";
 
 const variantSchema=mongoose.Schema({
     variantName:{
-        type:String,
-        required:true
+        type:String
     },
     price:{
-        type:Number,
-        required:true
+        type:Number
     },
     adas:{
-        type:Boolean,
-        required:true
+        type:Boolean
     },
     adrenox:{
-        type:Boolean,
-        required:true
+        type:Boolean
     },
     manual:{
-        type:Boolean,
-        required:true
+        type:Boolean
     },
     automatic:{
-        type:Boolean,
-        required:true
+        type:Boolean
     },
     fuel:{
-        type:String,
-        required:true
+        type:String
     }
 
 })
