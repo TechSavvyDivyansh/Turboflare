@@ -37,7 +37,7 @@ export default function Navbar() {
             <p className='text-[#9c9898]'>{currentAdmin.username}</p>
             <ul className="flex flex-col gap-10 my-8">
                 <Link to="/report"><li className='text-white text-center text-xl cursor-pointer'>REPORT</li></Link>
-                <Link to="/listing"><li className='text-white text-center text-xl cursor-pointer'>LISTING</li></Link>
+                <Link to="/view-listing"><li className='text-white text-center text-xl cursor-pointer'>LISTING</li></Link>
                 <Link to="/customer-data"><li className='text-white text-center text-xl cursor-pointer'>CUSTOMER DATA</li></Link>
                 {currentAdmin.isAdmin && <Link to="/team-data"><li className='text-white text-center text-xl cursor-pointer'>TEAM DATA</li></Link>}
                 <Link to="/advertisement"><li className='text-white text-center text-xl cursor-pointer'>ADVERTISEMENT</li></Link>

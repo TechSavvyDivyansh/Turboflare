@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import CreateVariantPopup from './CreateVariantPopup'
+import CreateVariantPopup from '../Components/Listing/CreateVariantPopup.jsx'
 import {getStorage,getDownloadURL,ref,uploadBytesResumable} from 'firebase/storage'
-import {app} from '../../firebase.js'
+import {app} from '../firebase.js'
 import {useNavigate} from 'react-router-dom'
+import ManageVariants from '../Components/Listing/ManageVariants.jsx'
+import { Link } from 'react-router-dom'
 
-export default function CreateListing(props) {
+export default function CreateListing() {
   let navigate=useNavigate()
   let [openPopup,setOpenPopup]=useState(false)
-  
-
+  let [variantData,setVariantData]=useState([])
   let [carData,setCarData]=useState({
     "carName":"",
     "carDesc":"",
@@ -24,12 +25,13 @@ export default function CreateListing(props) {
   let [imageUploadErrormessage,setImageUploadErrormessage]=useState("")
   let [imageUploadSuccess,setImageUploadSuccess]=useState(false)
   // let [filePerc,setFilePerc]=useState(0)
+
   
   useEffect(() => {
-    setCarData({ ...carData, variants: props.variantData });
-  }, [props.variantData]);
+    setCarData({ ...carData, variants: variantData });
+  }, [variantData]);
   
-  console.log(carData);
+  
 
   let handleChange=(e)=>{
       setCarData({
@@ -41,7 +43,7 @@ export default function CreateListing(props) {
 
   const handleImgSubmit=async()=>{
 
-        if(Files.length>=2 && File.length+carData.imageUrls.length<=5)
+        if(Files.length+carData.imageUrls.length>=2 && Files.length+carData.imageUrls.length<=5)
         {
            try {
             
@@ -107,7 +109,7 @@ export default function CreateListing(props) {
             })
             let data=await res.json()
 
-            navigate('/listing/view-listing')
+            navigate('/view-listing')
 
         } catch (error) {
             
@@ -124,7 +126,8 @@ export default function CreateListing(props) {
   }
 
   return (
-      <div className=" p-4 w-[85vw]  mt-10 flex flex-col items-center">
+      <div className=" p-4 w-[85vw]  mt-12 flex flex-col gap-14 items-center">
+        <p className='text-2xl'>CREATE LISTING</p>
           <form onSubmit={handleCreateCarListing} className="flex flex-col items-center gap-10">
                 <div className="flex gap-10 w-fit mx-auto">
                         <div className="left flex flex-col gap-5 w-[25vw]">
@@ -207,9 +210,11 @@ export default function CreateListing(props) {
                 <div className="flex  gap-5 ">
                       <button type='button' onClick={()=>{setOpenPopup(true)}} className='p-3 rounded border border-[#959292] text-[#959292] text-center'>ADD VARIANT</button>
                       {carData.variants.length>0 && <button type='submit' className='p-3 rounded border border-[#959292] text-[#959292] text-center'>CREATE LISTING</button>}
+                      <Link to='/view-listing'><p  className='p-3 rounded border border-[#959292] text-[#959292] text-center'>VIEW ALL LISTING</p></Link>
                 </div>
           </form>
-          {openPopup && <CreateVariantPopup setOpenPopup={setOpenPopup} setVariantData={props.setVariantData} variantData={props.variantData}/>}
+          {openPopup && <CreateVariantPopup setOpenPopup={setOpenPopup} setVariantData={setVariantData} variantData={variantData}/>}
+          {variantData.length>0 && <ManageVariants variantData={variantData} setVariantData={setVariantData}/>}
 
       </div>
       
