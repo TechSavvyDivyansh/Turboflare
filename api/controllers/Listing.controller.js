@@ -31,3 +31,13 @@ export const createVariant=async(req,res,next)=>{
         next(error)
     }
 }
+
+
+export let showCarData=async(req,res,next)=>{
+        try {
+            let carData=await carListing.find({})
+            res.status(201).json(carData)
+        } catch (error) {
+            next(error)
+        }
+}

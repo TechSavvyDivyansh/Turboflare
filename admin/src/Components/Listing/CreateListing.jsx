@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import CreateVariantPopup from './CreateVariantPopup'
 import {getStorage,getDownloadURL,ref,uploadBytesResumable} from 'firebase/storage'
 import {app} from '../../firebase.js'
+import {useNavigate} from 'react-router-dom'
 
 export default function CreateListing(props) {
-
+  let navigate=useNavigate()
   let [openPopup,setOpenPopup]=useState(false)
   
 
@@ -22,7 +23,7 @@ export default function CreateListing(props) {
   let [imageUploadError,setImageUploadError]=useState(false)
   let [imageUploadErrormessage,setImageUploadErrormessage]=useState("")
   let [imageUploadSuccess,setImageUploadSuccess]=useState(false)
-  let [filePerc,setFilePerc]=useState(0)
+  // let [filePerc,setFilePerc]=useState(0)
   
   useEffect(() => {
     setCarData({ ...carData, variants: props.variantData });
@@ -81,7 +82,6 @@ export default function CreateListing(props) {
 
           uploadTask.on("state_changed",(snapshot)=>{
             const progress=(snapshot.bytesTransferred/snapshot.totalBytes)*100
-            setFilePerc(progress)
             console.log(progress);
           },(err)=>{
             reject(err)
@@ -107,7 +107,7 @@ export default function CreateListing(props) {
             })
             let data=await res.json()
 
-
+            navigate('/listing/view-listing')
 
         } catch (error) {
             
