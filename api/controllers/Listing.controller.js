@@ -52,3 +52,34 @@ export let deleteListing=async(req,res,next)=>{
             next(error)
         }   
 }
+
+
+export let getSelectedCar=async(req,res,next)=>{
+    try {
+        
+        let car=await carListing.findById(req.params.id)
+        res.status(202).json(car)
+
+    } catch (error) {
+        next(error)
+    }
+
+}
+
+
+export let updateListing=async(req,res,next)=>{
+    try {
+        let listing=await carListing.findById(req.params.id)
+        if(!listing)
+        {
+            console.log("no listing found");
+        }
+
+        const updatedListing=await carListing.findByIdAndUpdate(req.params.id,req.body,{new:true})
+        res.status(200).json(updatedListing)
+
+    } catch (error) {
+        next(error)
+    }
+    
+}

@@ -53,7 +53,7 @@ export default function ViewListing() {
                               <p>{car.variants.length} Variants</p>
                               <div className="flex items-center gap-10 px-10">
                                 <button onClick={()=>{handleDeleteListing(car._id)}} className='p-2 bg-[#161616]'>DELETE LISTING</button>
-                                <button className='p-2 bg-[#161616]'>EDIT LISTING</button>
+                                <Link to={`/update-listing/${car._id}`}><button className='p-2 bg-[#161616]'>EDIT LISTING</button></Link>
                                 <button onClick={()=>{managePopup(car)}} className='p-2 bg-[#161616]'>VIEW LISTING</button>
                               </div>
                          </div>

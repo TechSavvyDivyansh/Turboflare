@@ -11,6 +11,7 @@ import TeamData from './pages/TeamData.jsx'
 import Profile from './pages/Profile.jsx'
 import ViewListing from './pages/ViewListing.jsx'
 import CreateListing from './pages/CreateListing.jsx'
+import UpdateListing from './pages/UpdateListing.jsx'
 
 function App() {
   let {currentAdmin}=useSelector(state=>state.admin)
@@ -26,6 +27,7 @@ function App() {
                         <Route path='/view-listing' element={<ViewListing/>}/>
                         <Route path='/advertisement' element={<Advertisment/>}/>
                         <Route path='/profile' element={<Profile/>} />
+                        <Route path='/update-listing/:carId' element={<UpdateListing/>} />
                         {currentAdmin && currentAdmin.isAdmin && <Route path='/team-data' element={<TeamData/>}/>}
 
               </Route>
