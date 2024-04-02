@@ -41,3 +41,14 @@ export let showCarData=async(req,res,next)=>{
             next(error)
         }
 }
+
+export let deleteListing=async(req,res,next)=>{
+        try {
+            let id=req.params.id
+            let DeletedListing=await carListing.findByIdAndDelete(id)
+            res.status(201).json(DeletedListing)
+
+        } catch (error) {
+            next(error)
+        }   
+}
