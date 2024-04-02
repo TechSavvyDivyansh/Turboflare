@@ -25,7 +25,6 @@ export default function CreateListing() {
   let [imageUploadErrormessage,setImageUploadErrormessage]=useState("")
   let [imageUploadSuccess,setImageUploadSuccess]=useState(false)
   // let [filePerc,setFilePerc]=useState(0)
-
   
   useEffect(() => {
     setCarData({ ...carData, variants: variantData });
@@ -98,7 +97,8 @@ export default function CreateListing() {
   }
 
 
-  let handleCreateCarListing=async()=>{
+  let handleCreateCarListing=async(e)=>{
+        e.preventDefault()
         try {
             let res=await fetch('/api/listing/create-car',{
               method:"POST",
@@ -126,7 +126,7 @@ export default function CreateListing() {
   }
 
   return (
-      <div className=" p-4 w-[85vw]  mt-12 flex flex-col gap-14 items-center">
+      <div className=" p-4 w-[85vw]  mt-12 flex flex-col gap-14 items-center overflow-y-scroll">
         <p className='text-2xl'>CREATE LISTING</p>
           <form onSubmit={handleCreateCarListing} className="flex flex-col items-center gap-10">
                 <div className="flex gap-10 w-fit mx-auto">

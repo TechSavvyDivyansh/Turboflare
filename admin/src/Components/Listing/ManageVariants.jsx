@@ -1,6 +1,13 @@
 import React from 'react'
 
 export default function ManageVariants(props) {
+
+    let handleDeleteVariant=(index)=>{
+        let updatedVariants=props.variantData.filter((_,i)=>i!==index)
+        props.setVariantData(updatedVariants)
+    }
+
+
   return (
     <div>
         <table className='w-[75vw] m-14'>
@@ -28,7 +35,7 @@ export default function ManageVariants(props) {
                                     <td className='w-[12.5%] text-center'>{variant.automatic?"yes":"no"}</td>
                                     <td className='w-[12.5%] text-center flex flex-col items-center'>
                                         <button className=''>EDIT</button>
-                                        <button className=''>DELETE</button>
+                                        <button onClick={()=>{handleDeleteVariant(index)}} className=''>DELETE</button>
                                     </td>
                                     </tr>
                         })}
