@@ -29,12 +29,11 @@ export default function ViewListing() {
 
     let handleDeleteListing=async(id)=>{
         try {
-          console.log(id);
           let res=await fetch(`/api/listing/delete-car/${id}`,{
             method:"DELETE"  
           })
           let data=await res.json()
-          console.log(data);
+          setCarData(carData.filter(car => car._id !== id));
 
         } catch (error) {
           console.log(error);
