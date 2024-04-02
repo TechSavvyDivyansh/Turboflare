@@ -9,7 +9,7 @@ export default function ManageVariants(props) {
 
 
   return (
-    <div>
+    <div className=''>
         <table className='w-[75vw] m-14'>
                     <thead>
                     {props.variantData.length>0 && <tr className='bg-[#2C2A2A]'>

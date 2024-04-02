@@ -111,11 +111,11 @@ export default function UpdateListing() {
   }
 
 
-  let handleCreateCarListing=async(e)=>{
+  let handleUpdateCarListing=async(e)=>{
         e.preventDefault()
         try {
-            let res=await fetch('/api/listing/create-car',{
-              method:"POST",
+            let res=await fetch(`/api/listing/update-car/${params.carId}`,{
+              method:"PATCH",
               headers:{
                 "content-type":"application/json"
               },
@@ -140,9 +140,9 @@ export default function UpdateListing() {
   }
 
   return (
-      <div className=" p-4 w-[85vw]  mt-12 flex flex-col gap-14 items-center overflow-y-scroll">
+      <div className=" p-4 w-[85vw] h-[100vh] mt-12 flex flex-col gap-14 items-center overflow-y-scroll">
         <p className='text-2xl'>UPDATE LISTING</p>
-          <form onSubmit={handleCreateCarListing} className="flex flex-col items-center gap-10">
+          <form onSubmit={handleUpdateCarListing} className="flex flex-col items-center gap-10">
                 <div className="flex gap-10 w-fit mx-auto">
                         <div className="left flex flex-col gap-5 w-[25vw]">
                               <input
@@ -204,7 +204,7 @@ export default function UpdateListing() {
                         <div className="right flex flex-col items-center gap-6">
                             <p>CAR IMAGES <span className="text-[#4d4c4c] p-3">The first image will be the cover(min 2 and max 5)</span></p>
                             <div className="flex gap-2 w-full">
-                                <input onChange={(e)=>setFiles(e.target.files)} type="file" name="" id="" className="cursor-pointer border p-3 rounded w-full border-[#353434]" required accept='image/*' multiple/>
+                                <input onChange={(e)=>setFiles(e.target.files)} type="file" name="" id="" className="cursor-pointer border p-3 rounded w-full border-[#353434]" accept='image/*' multiple/>
                                 <button type='button' onClick={handleImgSubmit} className='p-3 border border-green-700 text-green-700 rounded'>UPLOAD</button>
                             </div>  
 
@@ -230,7 +230,7 @@ export default function UpdateListing() {
                 </div>
           </form>
           {openPopup && <CreateVariantPopup setOpenPopup={setOpenPopup} setVariantData={setVariantData} variantData={variantData}/>}
-          {variantData.length>0 && <ManageVariants variantData={variantData} setVariantData={setVariantData}/>}
+          {carData.variants.length>0 && <ManageVariants variantData={carData.variants} setVariantData={setVariantData}/>}
 
       </div>
       
