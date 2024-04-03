@@ -10,6 +10,7 @@ export default function CreateListing() {
   let navigate=useNavigate()
   let [openPopup,setOpenPopup]=useState(false)
   let [variantData,setVariantData]=useState([])
+  let [loading,setLoading]=useState(false)
   let [carData,setCarData]=useState({
     "carName":"",
     "carDesc":"",
@@ -41,7 +42,7 @@ export default function CreateListing() {
 
 
   const handleImgSubmit=async()=>{
-
+        setLoading(true)
         if(Files.length+carData.imageUrls.length>=2 && Files.length+carData.imageUrls.length<=5)
         {
            try {
@@ -54,17 +55,20 @@ export default function CreateListing() {
 
                 setCarData({...carData,imageUrls:carData.imageUrls.concat(urls)})
                 setImageUploadSuccess(true)
+                setLoading(false)
 
            } catch (error) {
                 console.log("image upload failed ",error);
                 setImageUploadError(true)
                 setImageUploadErrormessage(error)
+                setLoading(false)
            }
 
         }
         else
         {
           setImageUploadError(true)
+          setLoading(false)
           setImageUploadErrormessage("Please upload minimum of 2 images and maximum of 5 images")
         }
 
@@ -126,7 +130,7 @@ export default function CreateListing() {
   }
 
   return (
-      <div className=" p-4 w-[85vw]  mt-12 flex flex-col gap-14 items-center overflow-y-scroll">
+      <div className=" p-4 w-[85vw] h-[100vh] mt-12 flex flex-col gap-14 items-center overflow-y-scroll">
         <p className='text-2xl'>CREATE LISTING</p>
           <form onSubmit={handleCreateCarListing} className="flex flex-col items-center gap-10">
                 <div className="flex gap-10 w-fit mx-auto">
@@ -189,7 +193,7 @@ export default function CreateListing() {
                             <p>CAR IMAGES <span className="text-[#4d4c4c] p-3">The first image will be the cover(min 2 and max 5)</span></p>
                             <div className="flex gap-2 w-full">
                                 <input onChange={(e)=>setFiles(e.target.files)} type="file" name="" id="" className="cursor-pointer border p-3 rounded w-full border-[#353434]" required accept='image/*' multiple/>
-                                <button type='button' onClick={handleImgSubmit} className='p-3 border border-green-700 text-green-700 rounded'>UPLOAD</button>
+                                <button type='button' onClick={handleImgSubmit} disabled={loading} className={`p-3 border border-green-700 ${loading?"text-green-900":"text-green-700"} rounded`}>{loading?"UPLOADING...":"UPLOAD"}</button>
                             </div>  
 
                             

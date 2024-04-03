@@ -41,7 +41,7 @@ export default function ViewListing() {
     }
 
   return (
-    <div className="p-10 w-[85vw] flex flex-col items-center gap-5 overflow-y-scroll">
+    <div className="p-10 w-[85vw] h-[100vh] flex flex-col items-center gap-5 overflow-y-scroll">
           <p className='text-center text-2xl'>LISTINGS</p>
           <div className='w-[90%] flex flex-col gap-3'>
               <Link to='/create-listing'><button className='text-white p-3 my-3 bg-[#1f1e1e] w-fit'>CREATE NEW LISTING</button></Link>

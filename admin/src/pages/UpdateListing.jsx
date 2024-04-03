@@ -11,6 +11,7 @@ export default function UpdateListing() {
   let params=useParams()
   let [openPopup,setOpenPopup]=useState(false)
   let [variantData,setVariantData]=useState([])
+  let [loading,setLoading]=useState(false)
   let [carData,setCarData]=useState({
     "carName":"",
     "carDesc":"",
@@ -55,7 +56,7 @@ export default function UpdateListing() {
 
 
   const handleImgSubmit=async()=>{
-
+        setLoading(true)
         if(Files.length+carData.imageUrls.length>=2 && Files.length+carData.imageUrls.length<=5)
         {
            try {
@@ -68,17 +69,20 @@ export default function UpdateListing() {
 
                 setCarData({...carData,imageUrls:carData.imageUrls.concat(urls)})
                 setImageUploadSuccess(true)
+                setLoading(false)
 
            } catch (error) {
                 console.log("image upload failed ",error);
                 setImageUploadError(true)
                 setImageUploadErrormessage(error)
+                setLoading(false)
            }
 
         }
         else
         {
           setImageUploadError(true)
+          setLoading(false)
           setImageUploadErrormessage("Please upload minimum of 2 images and maximum of 5 images")
         }
 
@@ -205,7 +209,7 @@ export default function UpdateListing() {
                             <p>CAR IMAGES <span className="text-[#4d4c4c] p-3">The first image will be the cover(min 2 and max 5)</span></p>
                             <div className="flex gap-2 w-full">
                                 <input onChange={(e)=>setFiles(e.target.files)} type="file" name="" id="" className="cursor-pointer border p-3 rounded w-full border-[#353434]" accept='image/*' multiple/>
-                                <button type='button' onClick={handleImgSubmit} className='p-3 border border-green-700 text-green-700 rounded'>UPLOAD</button>
+                                <button type='button' onClick={handleImgSubmit} disabled={loading} className={`p-3 border border-green-700 ${loading?"text-green-900":"text-green-700"} rounded`}>{loading?"UPLOADING...":"UPLOAD"}</button>
                             </div>  
 
                             

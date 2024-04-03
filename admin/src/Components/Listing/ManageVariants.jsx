@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import EditVariantPopup from './EditVariantPopup'
 
 export default function ManageVariants(props) {
 
@@ -7,6 +8,7 @@ export default function ManageVariants(props) {
         props.setVariantData(updatedVariants)
     }
 
+    let [editVariant,setEditVariant]=useState(false)
 
   return (
     <div className=''>
@@ -34,7 +36,8 @@ export default function ManageVariants(props) {
                                     <td className='w-[12.5%] text-center'>{variant.manual?"yes":"no"}</td>
                                     <td className='w-[12.5%] text-center'>{variant.automatic?"yes":"no"}</td>
                                     <td className='w-[12.5%] text-center flex flex-col items-center'>
-                                        <button className=''>EDIT</button>
+                                        <button className='' onClick={()=>{setEditVariant(true)}}>EDIT</button>
+                                        {editVariant && <EditVariantPopup variantData={variant} setEditVariant={setEditVariant}/>}
                                         <button onClick={()=>{handleDeleteVariant(index)}} className=''>DELETE</button>
                                     </td>
                                     </tr>
