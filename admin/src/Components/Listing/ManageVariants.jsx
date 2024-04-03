@@ -9,6 +9,14 @@ export default function ManageVariants(props) {
     }
 
     let [editVariant,setEditVariant]=useState(false)
+    let [editvariantData,setEditVariantData]=useState({})
+
+
+    let handleEditVariant=(vdata)=>{
+        setEditVariantData(vdata)
+        setEditVariant(true)
+    }
+
 
   return (
     <div className=''>
@@ -35,10 +43,10 @@ export default function ManageVariants(props) {
                                     <td className='w-[12.5%] text-center'>{variant.adrenox?"yes":"no"}</td>
                                     <td className='w-[12.5%] text-center'>{variant.manual?"yes":"no"}</td>
                                     <td className='w-[12.5%] text-center'>{variant.automatic?"yes":"no"}</td>
-                                    <td className='w-[12.5%] text-center flex flex-col items-center'>
-                                        <button className='' onClick={()=>{setEditVariant(true)}}>EDIT</button>
-                                        {editVariant && <EditVariantPopup variantData={variant} setEditVariant={setEditVariant}/>}
-                                        <button onClick={()=>{handleDeleteVariant(index)}} className=''>DELETE</button>
+                                    <td className='w-[12.5%] text-center flex gap-3 items-center'>
+                                        <button className='p-1 m-4' onClick={()=>{handleEditVariant(variant)}}>EDIT</button>
+                                        {editVariant && <EditVariantPopup variantData={editvariantData} setEditVariant={setEditVariant}/>}
+                                        <button onClick={()=>{handleDeleteVariant(index)}} className='p-1 m-4'>DELETE</button>
                                     </td>
                                     </tr>
                         })}
