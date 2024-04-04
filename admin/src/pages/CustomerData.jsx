@@ -75,6 +75,7 @@ export default function CustomerData() {
 
   return (
     <div className='p-10'>
+       <p className='text-center text-2xl'>CUSTOMER DATA</p>
       <div className="m-10 flex gap-4">
         <span className='p-4 bg-[#161616]'>{clientsData.length} Users</span>
         <CSVLink data={clientsData} headers={headers} filename={'data.csv'} className='bg-[#161616] p-4 flex flex-col item-center'>Download CSV</CSVLink>

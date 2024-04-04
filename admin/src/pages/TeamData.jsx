@@ -65,7 +65,7 @@ export default function TeamData() {
 
   return (
     <div className='w-[85vw] h-[100vh] p-7'>
-
+      <p className='text-center text-2xl'>TEAM DATA</p>
       <div className="">
           <button className='p-3 my-5 bg-[#222222]' onClick={()=>{setOpenPopup(true)}}>CREATE NEW ADMIN</button>
           {/* <p>{total admin}</p> */}
