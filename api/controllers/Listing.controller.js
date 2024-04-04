@@ -11,26 +11,7 @@ export const createCar=async(req,res,next)=>{
     }
 }
 
-export const createVariant=async(req,res,next)=>{
-    try {
-        
-        const carId=req.body.id
-        const variantData=req.body.variantData
 
-        const car=await carListing.findById(carId)
-        if(!car)
-        {
-            return res.status(404).json({ error: 'Car not found' });
-        }
-
-        car.variants.push(variantData);
-        await car.save();
-        res.status(200).json({ message: 'Variant added successfully' });
-
-    } catch (error) {
-        next(error)
-    }
-}
 
 
 export let showCarData=async(req,res,next)=>{

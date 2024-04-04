@@ -8,15 +8,13 @@ export default function ManageVariants(props) {
         props.setVariantData(updatedVariants)
     }
 
-    let [editVariant,setEditVariant]=useState(false)
-    let [editvariantData,setEditVariantData]=useState({})
+    let [openPopup,setOpenPopup]=useState(false)
+    const [editVariantData, setEditVariantData] = useState({});
 
-
-    let handleEditVariant=(vdata)=>{
-        setEditVariantData(vdata)
-        setEditVariant(true)
-    }
-
+    const handleEditVariant = (vdata) => {
+        setEditVariantData(vdata);
+        setOpenPopup(true);
+      };
 
   return (
     <div className=''>
@@ -43,10 +41,10 @@ export default function ManageVariants(props) {
                                     <td className='w-[12.5%] text-center'>{variant.adrenox?"yes":"no"}</td>
                                     <td className='w-[12.5%] text-center'>{variant.manual?"yes":"no"}</td>
                                     <td className='w-[12.5%] text-center'>{variant.automatic?"yes":"no"}</td>
-                                    <td className='w-[12.5%] text-center flex gap-3 items-center'>
-                                        <button className='p-1 m-4' onClick={()=>{handleEditVariant(variant)}}>EDIT</button>
-                                        {editVariant && <EditVariantPopup variantData={editvariantData} setEditVariant={setEditVariant}/>}
-                                        <button onClick={()=>{handleDeleteVariant(index)}} className='p-1 m-4'>DELETE</button>
+                                    <td className='w-[12.5%] text-center flex flex-col items-center'>
+                                        <button className='' onClick={() => handleEditVariant(variant)}>EDIT</button>
+                                        {openPopup && <EditVariantPopup setOpenPopup={setOpenPopup} setVariantData={props.setVariantData} variantData={props.variantData} editVariantData={editVariantData} index={index}/>}
+                                        <button onClick={()=>{handleDeleteVariant(index)}} className=''>DELETE</button>
                                     </td>
                                     </tr>
                         })}

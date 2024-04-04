@@ -22,6 +22,7 @@ export default function UpdateListing() {
     "imageUrls":[],
     "variants":[]
   })
+  console.log(variantData);
   let [Files,setFiles]=useState([])
   let [imageUploadError,setImageUploadError]=useState(false)
   let [imageUploadErrormessage,setImageUploadErrormessage]=useState("")
@@ -39,6 +40,7 @@ export default function UpdateListing() {
         let data=await res.json()
 
         setCarData(data)
+        setVariantData(data.variants)
 
     }
 
@@ -169,7 +171,7 @@ export default function UpdateListing() {
                                 defaultValue={carData.carDesc}
                                 required
                               ></textarea>
-                              <select className='p-3 rounded bg-[#2C2A2A] w-full cursor-pointer focus:outline-none' name="" id="carType" defaultValue="" onChange={handleChange} required>
+                              <select className='p-3 rounded bg-[#2C2A2A] w-full cursor-pointer focus:outline-none' name="" id="carType" defaultValue={carData.carType} onChange={handleChange} required>
                                 <option selected={"SUV"?true:false}>SUV</option>
                                 <option selected={"Luxury"?true:false}>Luxury</option>
                                 <option selected={"Sports Coupe"?true:false}>Sports Coupe</option>
