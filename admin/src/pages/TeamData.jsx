@@ -32,6 +32,34 @@ export default function TeamData() {
 
   },[])
 
+  let ToggleAdmin=async(id,currentIsAdmin)=>{
+      try {
+        let res=await fetch(`/api/admin/toggle-admin/${id}`,{
+          method:"PATCH"
+        })
+
+        let data=res.json()
+
+        if(res.ok)
+        {
+            setTeamData(prevTeamData => {
+                  return prevTeamData.map(member => {
+                          if (member._id === id) {
+                            return { ...member, isAdmin: !currentIsAdmin };
+                          }
+                          return member;
+                  });
+            });
+        }
+        
+
+        
+
+      } catch (error) {
+        console.log(error);
+      }
+  }
+
 
   
 
@@ -60,7 +88,7 @@ export default function TeamData() {
                   </thead>
                   <tbody>
                       {teamData.map((team,index)=>{
-                        const isAdmin=team.isAdmin
+                          const isAdmin=team.isAdmin
                           return <tr key={index} className='bg-[#161616]'>
                                     <td className='text-left p-5'>{index+1}</td>
                                     <td className='text-left'>{team.name}</td>
@@ -70,7 +98,7 @@ export default function TeamData() {
                                     <td className='text-left'>{team.phone}</td>
                                     <td className='text-left flex p-4 gap-3'>
                                       <input type="checkbox" checked={isAdmin}/>
-                                      <button>{isAdmin?"REMOVE ADMIN":"MAKE ADMIN"}</button>
+                                      <button onClick={()=>{ToggleAdmin(team._id,isAdmin)}}>{isAdmin?"REMOVE ADMIN":"MAKE ADMIN"}</button>
                                     </td>
                                 </tr>
                       })}

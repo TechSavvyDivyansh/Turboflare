@@ -88,3 +88,24 @@ export const TeamData=async(req,res,next)=>{
         next(error)
     }
 }
+
+
+
+export const ToggleAdmin=async(req,res,next)=>{
+    try {
+        
+        const admin=await Admin.findById(req.params.id)
+        if(!admin)
+        {
+            return res.status(404).json({ message: 'Admin not found' });
+        }
+
+        admin.isAdmin = !admin.isAdmin;
+        await admin.save()
+        return res.json({ message: 'isAdmin made superadmin successfully' });
+
+    } catch (error) {
+        next(error)
+    }
+}
+
