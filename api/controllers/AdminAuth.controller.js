@@ -52,7 +52,6 @@ export const AdminLogin=async(req,res,next)=>{
 
 export let sendWelcomeEmail=async(req,res,next)=>{
 
-    console.log(process.env.EMAIL,process.env.PASSWORD)
 
     try {
         let transporter=nodemailer.createTransport({
