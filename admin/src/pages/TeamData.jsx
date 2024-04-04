@@ -98,7 +98,7 @@ export default function TeamData() {
                                     <td className='text-left'>{team.phone}</td>
                                     <td className='text-left flex p-4 gap-3'>
                                       <input type="checkbox" checked={isAdmin}/>
-                                      <button onClick={()=>{ToggleAdmin(team._id,isAdmin)}}>{isAdmin?"REMOVE ADMIN":"MAKE ADMIN"}</button>
+                                      <button onClick={()=>{ToggleAdmin(team._id,isAdmin)}}>{isAdmin?"SUPER ADMIN":"ADMIN"}</button>
                                     </td>
                                 </tr>
                       })}
