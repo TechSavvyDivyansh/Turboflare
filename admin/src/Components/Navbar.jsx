@@ -36,6 +36,7 @@ export default function Navbar() {
             <img src={currentAdmin.avatar} alt="" className='w-[150px] h-[150px] rounded-full object-cover'/>
             <p className='text-[#9c9898]'>{currentAdmin.username}</p>
             <ul className="flex flex-col gap-10 my-8">
+                <Link to="/report"><li className='text-white text-center text-xl cursor-pointer'>DASHBOARD</li></Link>
                 <Link to="/report"><li className='text-white text-center text-xl cursor-pointer'>REPORT</li></Link>
                 <Link to="/view-listing"><li className='text-white text-center text-xl cursor-pointer'>LISTING</li></Link>
                 <Link to="/customer-data"><li className='text-white text-center text-xl cursor-pointer'>CUSTOMER DATA</li></Link>

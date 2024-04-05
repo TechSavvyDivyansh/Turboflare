@@ -96,7 +96,7 @@ export default function TeamData() {
       {openPopup && <TeamDataPopup setOpenPopup={setOpenPopup} teamData={teamData} setTeamData={setTeamData}/>}
 
       <div className="overflow-x-auto">
-              <table className='border-separate border-spacing-y-2 border-spacing-x-[2px]'>
+              <table className='border-separate border-spacing-y-[2px] border-spacing-x-[2px]'>
                   <thead>
                     <tr className='bg-[#2C2A2A]'>
                       <th className='w-[6%] text-center p-4'>Sr No.</th>
