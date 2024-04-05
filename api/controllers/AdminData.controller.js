@@ -102,10 +102,28 @@ export const ToggleAdmin=async(req,res,next)=>{
 
         admin.isAdmin = !admin.isAdmin;
         await admin.save()
-        return res.json({ message: 'isAdmin made superadmin successfully' });
+        return res.json({ message: `isAdmin rights toggled to ${admin.isAdmin?"super admin":"admin"}` });
 
     } catch (error) {
         next(error)
     }
 }
 
+export const ToggleDisable=async(req,res,next)=>{
+    try {
+        
+        const admin=await Admin.findById(req.params.id)
+        if(!admin)
+        {
+            return res.status(404).json({ message: 'Admin not found' });
+        }
+
+        admin.isEnabled = !admin.isEnabled;
+        await admin.save()
+        return res.json({ message: `admin ${admin.isEnabled?"enabled":"disabled"}` });
+
+
+    } catch (error) {
+        next(error)
+    }
+}

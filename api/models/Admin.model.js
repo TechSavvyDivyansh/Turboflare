@@ -33,6 +33,10 @@ const adminSchema=mongoose.Schema({
     avatar:{
         type:String,
         default:"https://img.freepik.com/premium-photo/anime-boy-man-avatar-ai-generative-art_225753-7456.jpg"
+    },
+    isEnabled:{
+        type:Boolean,
+        default:true 
     }
 },{timestamps:true})
 

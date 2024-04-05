@@ -25,7 +25,7 @@ export const AdminLogin=async(req,res,next)=>{
     try {
         let validAdmin=await Admin.findOne({username})
 
-        if(!validAdmin)
+        if(!validAdmin || !validAdmin.isEnabled)
         {
             return next(errorHandler(401,"Admin not found!"))
         }
